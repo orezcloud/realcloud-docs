@@ -40,14 +40,14 @@ This release introduces a completely redesigned permission system with significa
 
   * VIEW, CREATE, EDIT, VOID, DELETE, PRINT
 
-**Per-Scope Backdate Controls**
+**Backdate Controls (Per Document Type)**
+You can configure backdate rules separately for each document type (scope), giving you precise control over how far users can work with past data.
 
-* Fine-grained control over document date restrictions
-* Configure:
+* **Maximum Backdate Days**
+  Limits how many days back a user can create new documents.
 
-  * Maximum backdate days
-  * Edit age limits per scope
-* Role-level overrides supported
+* **Edit Age Limit**
+  Restricts how old a document can be for editing after it has been created.
 
 **Special Permissions**
 
