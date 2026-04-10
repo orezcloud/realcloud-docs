@@ -1,172 +1,193 @@
+---
+
+## v4.35.4 – 2026-04-07
+
+* Fixed issue where past payments could not be allocated to future invoices
+* Added support for converting grouped report permissions into individual report-level permissions
 
 ---
 
-## v1.9.2 – 2026-04-05
+## v4.35.3 – 2026-03-31
 
-### Fixed
-- Fixed rounding issue in invoice totals when applying multiple discounts
-- Resolved bug where POS would freeze after rapid item scanning
-- Fixed incorrect tax calculation on inclusive pricing mode
-
-### Improved
-- Improved performance of invoice list page (up to 40% faster load)
-- Optimized database queries for large datasets
-- Reduced memory usage in reporting module
+* Fixed several permission-related issues
 
 ---
 
-## v1.9.1 – 2026-04-02
+## v4.35.1 – 2026-03-31
 
-### Fixed
-- Fixed issue where deleted customers still appeared in dropdown
-- Corrected display bug in dark mode for tables
-- Fixed broken link in help section
-
-### Security
-- Improved validation on user input fields
-- Strengthened API rate limiting
+* Improved automatic conversion from legacy permissions to the new permission system
+* Fixed permission-related issues
+* Fixed issues with customer/vendor bulk upload
 
 ---
 
-## v1.9.0 – 2026-04-01
+## v4.35.0 – 2026-03-31
 
-### Added
-- Introduced multi-store support
-- Added store-level reporting and filtering
-- New settings page for managing multiple branches
+### 🚀 Major Feature Update – Advanced Permission System
 
-### Improved
-- Redesigned dashboard UI for better clarity
-- Faster switching between stores
+This release introduces a completely redesigned permission system with significantly improved control and security.
 
-### Fixed
-- Minor UI glitches in sidebar navigation
+#### Key Features
 
----
+**Granular Permission Model**
 
-## v1.8.3 – 2026-03-28
+* Replaced simple permission strings with a scope-based action matrix (`RoleScopePermission`)
+* 25+ permission scopes covering all business domains:
 
-### Fixed
-- Fixed issue with exporting PDF invoices
-- Corrected alignment in printed receipts
-- Fixed crash when adding large number of items to invoice
+  * Sales, Purchase, Inventory, Accounting, Cheques, Masters, Reports, Settings
+* 6 standard actions per scope:
 
----
+  * VIEW, CREATE, EDIT, VOID, DELETE, PRINT
 
-## v1.8.2 – 2026-03-25
+**Per-Scope Backdate Controls**
 
-### Improved
-- Improved loading speed for product search
-- Better keyboard navigation in POS
+* Fine-grained control over document date restrictions
+* Configure:
 
-### Fixed
-- Fixed incorrect stock deduction in edge cases
-- Resolved issue with duplicate invoice numbers
+  * Maximum backdate days
+  * Edit age limits per scope
+* Role-level overrides supported
 
----
+**Special Permissions (`RoleSpecialPermission`)**
 
-## v1.8.1 – 2026-03-20
+* System-level capability controls:
 
-### Fixed
-- Fixed UI flicker on page transitions
-- Corrected date format inconsistency in reports
+  * Pricing: under-cost pricing, discount limits, cost visibility
+  * Inventory: negative stock, count finalization
+  * Advanced operations: locked period edits, approval bypass, multi-store access
+* Flexible JSON-based configuration for custom rules
 
----
+**Store-Level Access Control (`UserStoreAccess`)**
 
-## v1.8.0 – 2026-03-15
+* Multi-store support with user-to-store mapping
+* Restrict access per store
+* Option to bypass store restrictions via special permissions
 
-### Added
-- Added barcode printing support
-- Introduced quick add product feature in POS
-- New audit log system for tracking changes
+#### Improvements
 
-### Improved
-- Cleaner invoice layout
-- Better mobile responsiveness
+* **Scalability**: Add new scopes/actions without schema changes
+* **Auditability**: Clear permission matrix for compliance reporting
+* **Flexibility**: Custom business rules via JSON-based permissions
+* **Multi-tenancy**: Store-level access for enterprise use
 
----
+> Note: Legacy `Role.permissions` (JSON array) remains functional during the transition period. Further refinements will be made based on user feedback.
 
-## v1.7.2 – 2026-03-10
+#### Other Updates
 
-### Fixed
-- Fixed issue where payments were not updating invoice status
-- Resolved bug in customer balance calculation
+* Restricted one user to a single tenant/account for improved stability
+* Added `noOfItems` and `noOfPcs` columns to the main sales report
+* Combined product bulk upload and bulk update into a single workflow
 
----
+  * Download existing data and update via a single Excel file
+* Added bulk upload support for customers and vendors (including opening balances)
+* Strengthened Chart of Accounts:
 
-## v1.7.1 – 2026-03-05
-
-### Improved
-- Improved error messages across the app
-- Better handling of network failures
-
-### Fixed
-- Fixed issue with login session expiration
+  * Reserved names are now non-editable
+* Fixed high processing usage in report tables
 
 ---
 
-## v1.7.0 – 2026-03-01
+## v4.34.0 – 2026-03-27
 
-### Added
-- Introduced credit note functionality
-- Added vendor management module
-- New financial summary dashboard
+* Improved date range selector:
 
-### Improved
-- Faster report generation
-- Improved navigation structure
+  * Easier selection of month, day, and year
+  * Reintroduced year selection
 
----
+* Added layout configuration for most reports:
 
-## v1.6.5 – 2026-02-25
-
-### Fixed
-- Fixed issue with stock adjustment not reflecting immediately
-- Corrected rounding issues in tax reports
+  * Customize visible columns
+  * Access additional hidden columns
+  * Rearrange column order
+  * Available via the gear icon near export
 
 ---
 
-## v1.6.4 – 2026-02-20
+## v4.33.0 – 2026-03-26
 
-### Improved
-- Improved UI consistency across modules
-- Reduced loading time for dashboard widgets
+* Improved responsiveness in customer and vendor areas
 
----
+* General stability improvements
 
-## v1.6.3 – 2026-02-15
+* Added cheque amount configuration:
 
-### Fixed
-- Fixed bug in invoice edit functionality
-- Resolved issue with duplicate product entries
+  * Configure how post-dated cheque (PDC) amounts are calculated
+  * Option to include:
 
----
-
-## v1.6.2 – 2026-02-10
-
-### Improved
-- Improved caching for faster navigation
-- Enhanced API response times
+    * Only cheques in hand
+    * All pending cheques (including transferred cheques to vendors)
 
 ---
 
-## v1.6.1 – 2026-02-05
+## v4.32.0 – 2026-03-26
 
-### Fixed
-- Fixed issue where totals were not updating after item removal
-- Corrected minor UI alignment issues
+### Document Render Settings
+
+* Introduced customizable document rendering using Handlebars templates
+* Enables custom print formats across different sections:
+
+  * Invoice payments
+  * Customer-related prints
+* API access available within templates
+* Supports multiple print templates
+
+**Example Use Cases**
+
+* Customer outstanding reports
+* Customer aging reports
+
+> Currently, invoice payment printing is supported.
+
+### Bulk Payment Improvements
+
+* Bulk payments are now tracked as a single entity:
+
+  * System records which payments belong to a bulk transaction
+
+* Added print support for bulk invoice payments:
+
+  * Print a single receipt for multiple payments (e.g., multiple cheques)
+  * Fully customizable via document render settings
+
+* Fixed cheque-related issues in bulk payments
 
 ---
 
-## v1.6.0 – 2026-02-01
+## v4.31.0 – 2026-03-20
 
-### Added
-- Initial release of reporting module
-- Added sales summary and profit reports
-- Export reports as PDF and CSV
+* Added image link settings:
 
-### Improved
-- General performance improvements
-- Better error handling
+  * Generate multiple image links as needed
+
+* Added new **Monthly Sales Report**
+
+* Introduced custom HTML print support using Handlebars templates
+
+* Added ability to:
+
+  * Activate/deactivate print templates for commerce documents
+  * Select a primary print button
+
+---
+
+## v4.30.2 – 2026-03-19
+
+* General stability improvements and bug fixes
+* Fixed issue where journals could not be opened from customer inquiry history
+
+---
+
+## v4.30.0 – 2026-03-18
+
+* Added support for invoice payments via journal entries
+
+* Introduced new party auto-allocation method (`/AutoAllocation`)
+
+* Added support for contra settlements:
+
+  * Bill-to-bill
+  * Invoice-to-invoice
+
+* Added option to manually resolve bill payments
 
 ---
