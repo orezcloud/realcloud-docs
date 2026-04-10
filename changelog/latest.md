@@ -31,7 +31,7 @@ This release introduces a completely redesigned permission system with significa
 
 **Granular Permission Model**
 
-* Replaced simple permission strings with a scope-based action matrix (`RoleScopePermission`)
+* Replaced simple permission strings with a scope-based action matrix
 * 25+ permission scopes covering all business domains:
 
   * Sales, Purchase, Inventory, Accounting, Cheques, Masters, Reports, Settings
@@ -48,7 +48,7 @@ This release introduces a completely redesigned permission system with significa
   * Edit age limits per scope
 * Role-level overrides supported
 
-**Special Permissions (`RoleSpecialPermission`)**
+**Special Permissions**
 
 * System-level capability controls:
 
@@ -57,7 +57,7 @@ This release introduces a completely redesigned permission system with significa
   * Advanced operations: locked period edits, approval bypass, multi-store access
 * Flexible JSON-based configuration for custom rules
 
-**Store-Level Access Control (`UserStoreAccess`)**
+**Store-Level Access Control)**
 
 * Multi-store support with user-to-store mapping
 * Restrict access per store
@@ -70,7 +70,7 @@ This release introduces a completely redesigned permission system with significa
 * **Flexibility**: Custom business rules via JSON-based permissions
 * **Multi-tenancy**: Store-level access for enterprise use
 
-> Note: Legacy `Role.permissions` (JSON array) remains functional during the transition period. Further refinements will be made based on user feedback.
+> Note: Legacy permission remains functional during the transition period. Further refinements will be made based on user feedback.
 
 #### Other Updates
 
