@@ -1,18 +1,18 @@
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.35.4 – 2026-04-07
 
 * Fixed issue where past payments could not be allocated to future invoices
 * Added support for converting grouped report permissions into individual report-level permissions
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.35.3 – 2026-03-31
 
 * Fixed several permission-related issues
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.35.1 – 2026-03-31
 
@@ -20,7 +20,7 @@
 * Fixed permission-related issues
 * Fixed issues with customer/vendor bulk upload
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.35.0 – 2026-03-31
 
@@ -87,7 +87,7 @@ You can configure backdate rules separately for each document type (scope), givi
   * Reserved names are now non-editable
 * Fixed high processing usage in report tables
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.34.0 – 2026-03-27
 
@@ -103,7 +103,7 @@ You can configure backdate rules separately for each document type (scope), givi
   * Rearrange column order
   * Available via the gear icon near export
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.33.0 – 2026-03-26
 
@@ -119,7 +119,7 @@ You can configure backdate rules separately for each document type (scope), givi
     * Only cheques in hand
     * All pending cheques (including transferred cheques to vendors)
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.32.0 – 2026-03-26
 
@@ -153,7 +153,7 @@ You can configure backdate rules separately for each document type (scope), givi
 
 * Fixed cheque-related issues in bulk payments
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.31.0 – 2026-03-20
 
@@ -170,14 +170,14 @@ You can configure backdate rules separately for each document type (scope), givi
   * Activate/deactivate print templates for commerce documents
   * Select a primary print button
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.30.2 – 2026-03-19
 
 * General stability improvements and bug fixes
 * Fixed issue where journals could not be opened from customer inquiry history
 
----
+<!-- @orez/changelog-entry -->
 
 ## v4.30.0 – 2026-03-18
 
