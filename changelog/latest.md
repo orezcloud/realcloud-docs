@@ -1,6 +1,88 @@
 
 <!-- @orez/changelog-entry -->
 
+## v5.0.0 – 2026-05-19
+
+### Major Release – RealCloud ERP v5.0.0
+
+Welcome to RealCloud v5.0.0! This is a major release with substantial new capabilities, stronger financial data integrity, and a noticeably faster, cleaner user experience throughout the platform.
+
+#### New Features
+
+**Batch & Serial Inventory Tracking**
+
+Track physical stock down to the manufacturing lot or individual serial number.
+
+* **Lot & Serial Registration**: Attach manufacturing batch codes and expiry dates; split checkout lines across multiple lot pools.
+* **Built-in Safeguards**: Prevents selling items before inbound receipt; credit note returns restricted to actual purchased units.
+
+**Global Search (Ctrl+K / ⌘K)**
+
+Find almost anything from one search palette.
+
+* **Everyday lookup**: Search products, customers, vendors, reports, and quick actions.
+* **Document search**: Start query with '>' to search live commerce documents (invoices, bills, etc.).
+
+**Void & Deletion Archive**
+
+Deleted or voided transactions are preserved in a permanent archive with full historical data snapshots and audit trails.
+
+**Advanced Report Generator**
+
+A new generation of interactive reports built for large histories.
+
+* **Full Report Interaction**: Load entire result sets with infinite scroll; sort, group, and customize columns.
+* **Drilldowns & Sharing**: Click through to source documents; carry over filters to related reports; bookmark/share via URL.
+* **Future-Ready**: Pivot-style analysis coming soon; matrix layouts already supported.
+
+**Real-Time AR & AP Balances**
+
+Customer and vendor outstanding balances update in real time for instant listings and statements at any scale.
+
+**Automated Profit Matrix Report**
+
+New monthly profit-and-loss matrix report that builds itself automatically, aggregating sales, returns, expenses, and margins.
+
+**Dashboard Redesign**
+
+Rebuilt from the ground up for a comprehensive view of business performance.
+
+* **At-a-glance KPIs**: Revenue, expenses, receivables, and financial health ratios with trends.
+* **Trend Breakdowns**: Interactive charts, expense breakdowns by account, and top customer insights.
+* **Stay Current**: Recent transactions list with payment status; flexible date filters; privacy mode.
+
+**Fast Autocomplete Pickers**
+
+Instant, highlight-matching autocomplete for customers, vendors, and accounts. Includes inline customer creation during checkout.
+
+**Redesigned Quick Actions Menu**
+
+Spacious four-column panel (Add Records, Sales, Purchasing, Money & Stock) with a borderless, clutter-free layout.
+
+#### Improvements
+
+* **Simplified Payment Statuses**: Clear 'PAID' or 'UNPAID' color-coded indicators.
+* **Flexible Overpayments**: Allocate payments across calendar dates; record overpayments and split receipts freely.
+* **Product-First Grid Rules**: Quantity, rate, and tax fields locked until item selection to guide entry.
+* **Isolated Journal Aging**: Receivables and payables shown separately from manual journals in aging statements.
+
+#### Accounting Changes
+
+* **System Account Identity System**: DB-enforced 'SystemAccountRole' for critical accounts (AR, AP, Tax, COGS).
+* **Automated Cheque Settlement**: Cheques marked 'Cleared' automatically upon bank deposit.
+* **Immutable Tracking Rules**: Product tracking type (Standard, Batch, Serial) is locked after save.
+* **Base Unit Restriction**: Tracked products restricted to base unit of measure for clean stock audits.
+
+#### Fixes
+
+* **Clean Deletions**: Deleting parent transactions removes all linked payments and related records.
+* **Navigation Links**: Clicking transaction references in reports/lists opens the document.
+* **Audit Logs**: Newly created invoices now generate proper edit history records.
+* **Form Stability**: Input fields reliably keep focus in modals and overlays.
+* **Overlay Reliability**: Dropdowns and modals stay open during interaction with nearby controls.
+
+<!-- @orez/changelog-entry -->
+
 ## v4.35.4 – 2026-04-07
 
 * Fixed issue where past payments could not be allocated to future invoices
@@ -24,7 +106,7 @@
 
 ## v4.35.0 – 2026-03-31
 
-### 🚀 Major Feature Update – Advanced Permission System
+### Major Feature Update – Advanced Permission System
 
 This release introduces a completely redesigned permission system with significantly improved control and security.
 
