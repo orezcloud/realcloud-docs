@@ -9,6 +9,8 @@ Welcome to RealCloud v5.0.0! This is a major release with substantial new capabi
 
 #### New Features
 
+test
+
 **Batch & Serial Inventory Tracking**
 
 Track physical stock down to the manufacturing lot or individual serial number.
